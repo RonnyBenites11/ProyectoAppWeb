@@ -2,8 +2,13 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
    <meta charset="ISO-8859-1">
     <title>Yerbateros Login</title>
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+ 
     <link rel="stylesheet" th:href="@{/resources/css/stylelogin.css}"> 
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +17,7 @@
         <div class="sub-page">
             <div class="navigation-bar">
                 <div class="logo">
-                    <img src='/resources/img/Proyecto nuevo.png' width="150vh" height="100px"><h3> Yerbateros S.A.C.</h3>
+                    <a th:href="@{/pagina-principal/}"><img src='/resources/img/Proyecto nuevo.png' width="150vh" height="100px"> </a><h3> Yerbateros S.A.C.</h3>
                 </div>
                 <nav>
                     <ul id='MenuItems'>
@@ -57,5 +62,7 @@
     <script>
         $('.message a').click(function(){$('form').animate({height: "toggle",opacity: "toggle"},"slow");});
     </script>
+  
+    
 </body>
 </html>

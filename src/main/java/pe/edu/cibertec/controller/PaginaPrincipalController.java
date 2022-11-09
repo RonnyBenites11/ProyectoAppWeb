@@ -1,6 +1,7 @@
 package pe.edu.cibertec.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,41 +22,22 @@ import pe.edu.cibertec.entity.Bus;
 import pe.edu.cibertec.entity.Terminal;
 
 @Controller
-@RequestMapping("/pagina-principal")
+@RequestMapping("/index")
 public class PaginaPrincipalController {
-	@Autowired
-	private RutaService servicioRut;
 	
-	@Autowired
-	private TerminalService servicioTer;
-	
-	@Autowired
-	private ViajeService servicioVia;
-	
-	@RequestMapping("/")
-	public String lista(Model model) {
-		List<Ruta> infoR=servicioRut.listarTodos();
-		model.addAttribute("rutas", infoR);
+	@GetMapping("")
+	public String index(){
+		return "index";
 		
-		List<Terminal> infoT=servicioTer.listarTodos();
-		model.addAttribute("terminales", infoT);
-		
-		List<Viaje> infoV=servicioVia.listarTodos();
-		model.addAttribute("viajes", infoV);
-		
-		return "pagina-principal";
 	}
-	@RequestMapping("/login")
-	public String login(Model model) {
-		List<Ruta> infoR=servicioRut.listarTodos();
-		model.addAttribute("rutas", infoR);
-		
-		List<Terminal> infoT=servicioTer.listarTodos();
-		model.addAttribute("terminales", infoT);
-		
-		List<Viaje> infoV=servicioVia.listarTodos();
-		model.addAttribute("viajes", infoV);
-		
+	@GetMapping("/login")
+	public String login(){
 		return "login";
+		
 	}
-}
+	
+
+	
+		
+	}
+
